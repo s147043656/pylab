@@ -2,8 +2,8 @@
 #
 # This module renames files from fileName.* to YYYYMMDD-HHMMSS-fileName.*
 
-import os
 import sys
+import os
 import re
 import PIL.Image
 
@@ -15,10 +15,8 @@ filesDir = sys.argv[1]
 fileExt = sys.argv[2]
 filesList = os.listdir(filesDir)
 
-print('\n\tFull list of the ' + filesDir + ' directory:')
-print(filesList)
+print('\n\tFull list of the ' + filesDir + ' directory:\n%s' % filesList)
 print('\t(%d total)' % len(filesList))
-print('\n\tFiltered to be processed (' + fileExt + ' only):')
 
 filesExtList = []
 for item in filesList:
@@ -26,11 +24,11 @@ for item in filesList:
     matchItem = re.match(matchString, item)
     if matchItem:
         filesExtList.append(item)
-print(filesExtList)
+
+print('\n\tFiltered to be processed (' + fileExt + ' only):\n%s' % filesExtList)
 print('\t(%d total)' % len(filesExtList))
 
 print('\nOld file name:\t\tDate taken:\t\tNew file name:\n' + '-'*77)
-
 if fileExt == 'JPG':
     os.chdir(filesDir)
     for fileName in filesExtList:
@@ -44,4 +42,4 @@ if fileExt == 'JPG':
         os.rename(fileName, newFileName)
 
 if fileExt == 'MOV':
-    print('MOV renaming not developed yet.')
+    print('Sorry, MOV renaming not developed yet.')
