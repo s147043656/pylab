@@ -8,16 +8,17 @@ import re
 import PIL.Image
 
 if len(sys.argv) < 3:
-    print('\nUsage:\t' + sys.argv[0] + ' pathToFiles' + ' fileExtension\n')
+    print('\n\tUsage:\t' + sys.argv[0] + ' pathToFiles' + ' fileExtension\n')
     quit()
 
 filesDir = sys.argv[1]
 fileExt = sys.argv[2]
 filesList = os.listdir(filesDir)
 
-print('All files found in the directory: ' + filesDir + '\n')
+print('\n\tFull list of the ' + filesDir + ' directory:')
 print(filesList)
-print('\nWill be processed only ' + fileExt + ' files:\n')
+print('\t(%d total)' % len(filesList))
+print('\n\tFiltered to be processed (' + fileExt + ' only):')
 
 filesExtList = []
 for item in filesList:
@@ -25,10 +26,10 @@ for item in filesList:
     matchItem = re.match(matchString, item)
     if matchItem:
         filesExtList.append(item)
-
 print(filesExtList)
+print('\t(%d total)' % len(filesExtList))
 
-print('Old file name:\t\tDate taken:\t\tNew file name:\n' + '-'*77)
+print('\nOld file name:\t\tDate taken:\t\tNew file name:\n' + '-'*77)
 
 if fileExt == 'JPG':
     os.chdir(filesDir)
