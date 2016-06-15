@@ -14,7 +14,6 @@ if len(sys.argv) < 3:
 filesDir = sys.argv[1]
 fileExt = sys.argv[2]
 filesList = os.listdir(filesDir)
-
 print('\n\t### Full list of the ' + filesDir + ' directory:\n%s' % filesList)
 print('\t(%d total)' % len(filesList))
 
@@ -24,7 +23,6 @@ for item in filesList:
     matchItem = re.match(matchString, item)
     if matchItem:
         filesExtList.append(item)
-
 print('\n\t### Filtered to be processed (' + fileExt + ' only):\n%s' % filesExtList)
 print('\t(%d total)' % len(filesExtList))
 
