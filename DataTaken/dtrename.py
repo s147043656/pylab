@@ -5,6 +5,7 @@
 
 import sys
 import os
+import datetime
 import re
 import PIL.Image
 
@@ -47,4 +48,17 @@ if fileExt == 'JPG':
     print('\t(Total processed: %d)' % processedFiles)
 
 if fileExt == 'MOV':
-    print('Sorry, MOV renaming not developed yet.')
+    os.chdir(filesDir)
+    processedFiles = 0
+    for fileName in filesExtList:
+        fileStat = os.stat(fileName)
+        dateTaken = str(datetime.datetime.fromtimestamp(fileStat.st_mtime))
+        m1 = re.match('(.*)-(.*)-(.*)\ (.*):(.*):(.*)', dateTaken)
+        dateTaken2 = m1.group(1) + m1.group(2) + m1.group(3) + '-' + m1.group(4) + m1.group(5) + m1.group(6)
+        m2 = re.match(dateTaken2, fileName)
+        if not m2:
+            newFileName = dateTaken2 + '-' + fileName 
+            print(fileName + '\t\t' + dateTaken + '\t' + newFileName)
+            os.rename(fileName, newFileName)
+            processedFiles +=1 
+    print('\t(Total processed: %d)' % processedFiles)
