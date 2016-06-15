@@ -44,7 +44,7 @@ if fileExt == 'JPG':
             fileOpened.close()
             os.rename(fileName, newFileName)
             processedFiles +=1 
-    print('\t(Total processed: %d' % processedFiles)
+    print('\t(Total processed: %d)' % processedFiles)
 
 if fileExt == 'MOV':
     print('Sorry, MOV renaming not developed yet.')
