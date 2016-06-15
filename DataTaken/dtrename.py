@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #
-# This module renames files from fileName.* to YYYYMMDD-HHMMSS-fileName.*
+# This module developed for renaming of JPG, MOV  media files from fileName.* to
+# YYYYMMDD-HHMMSS-fileName.* using EXIF "Date taken" property
 
 import sys
 import os
