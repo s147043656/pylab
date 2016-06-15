@@ -10,7 +10,7 @@ import PIL.Image
 
 if len(sys.argv) < 3:
     print('\n\tUsage:\t' + sys.argv[0] + ' pathToFiles' + ' fileExtension\n')
-    quit()
+    sys.exit(1)
 
 filesDir = sys.argv[1]
 fileExt = sys.argv[2]
