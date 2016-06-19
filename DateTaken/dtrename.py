@@ -29,7 +29,7 @@ print('\n\t### Filtered to be processed (' + fileExt + ' only):\n%s' % filesExtL
 print('\t(%d total)' % len(filesExtList))
 
 print('\n\t### Processing:\nOld file name\t\tDate taken\t\tNew file name\n' + '-'*77)
-if fileExt == 'JPG':
+if fileExt == 'JPG'or fileExt == 'jpg':
     os.chdir(filesDir)
     processedFiles = 0
     for fileName in filesExtList:
@@ -47,7 +47,7 @@ if fileExt == 'JPG':
             processedFiles +=1 
     print('\t(Total processed: %d)' % processedFiles)
 
-if fileExt == 'MOV':
+if fileExt == 'MOV' or fileExt == 'mp4':
     os.chdir(filesDir)
     processedFiles = 0
     for fileName in filesExtList:
